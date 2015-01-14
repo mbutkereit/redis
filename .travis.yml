@@ -54,6 +54,11 @@ install:
   # Get latest drupal 8 core
   - cd $TRAVIS_BUILD_DIR/..
   - git clone --depth 1 --branch 8.0.x http://git.drupal.org/project/drupal.git
+  # Install predis
+  # @todo: Update code to use composer.
+  - mkdir -p drupal/sites/all/libraries
+  - cd drupal/sites/all/libraries
+  - git clone --depth 1 https://github.com/nrk/predis
   # Restart apache and test it
   - sudo service apache2 restart
   - curl -v "http://localhost"
